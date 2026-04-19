@@ -2,50 +2,29 @@
   <h1>Ashish Kumar Mandal</h1>
   <p>Hospitality professional with experience across India & Middle East in luxury hotel operations, bar management, and guest relations.</p>
 
-  <p><strong>Location:</strong> Kolkata, India</p>
-  <p><strong>Email:</strong> Aashish.mandal@yahoo.com</p>
-  <p><strong>Phone:</strong> +91-8620008019</p>
-</section>
+<nav class="bg-black text-white p-4 fixed w-full top-0 z-50">
+  <div class="flex justify-between items-center">
+    <h1 class="text-xl font-bold">Ashish Portfolio</h1>
 
-<section id="experience">
-  <h2>Professional Experience</h2>
+    <!-- Main Menu Button -->
+    <button id="menu-btn" class="md:hidden text-white text-2xl">
+      ☰
+    </button>
 
-  <div>
-    <h3>Guest Service Supervisor – Jai Mahal Palace (Taj)</h3>
-    <p>Sep 2024 – Present</p>
-    <ul>
-      <li>Supervise restaurant & bar operations</li>
-      <li>Handle guest complaints & service recovery</li>
-      <li>Manage staff scheduling & training</li>
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#about" class="hover:text-gray-300">About</a></li>
+      <li><a href="#cocktails" class="hover:text-gray-300">Cocktails</a></li>
+      <li><a href="#experience" class="hover:text-gray-300">Experience</a></li>
+      <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
     </ul>
   </div>
 
-  <div>
-    <h3>Bartender – Sedra Arjaan by Rotana, Doha</h3>
-    <p>Nov 2023 – Apr 2024</p>
-  </div>
-
-  <div>
-    <h3>Bartender – Hilton Bengaluru</h3>
-    <p>Apr 2022 – Mar 2023</p>
-  </div>
-</section>
-
-<br>
-
-
-<section id="achievements">
-  <h2>Achievements</h2>
-  <ul>
-    <li>🏆 Best Bartender 2022</li>
-    <li>🍸 Created 70+ cocktails</li>
-    <li>📈 Increased repeat guests by 25%</li>
-    <li>🎯 Resolved 98% guest issues</li>
+  <!-- Mobile Menu -->
+  <ul id="mobile-menu" class="hidden flex-col mt-4 space-y-2 md:hidden">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cocktails">Cocktails</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-</section>
-<section id="cocktails">
-  <h2>My Cocktails</h2>
-  <div id="cocktails"></div>
-</section>
-
-<script src="js/app.js"></script>
+</nav>
