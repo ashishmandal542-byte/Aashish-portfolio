@@ -1,1 +1,12 @@
-
+[
+  {
+    "name": "Smoked Negroni",
+    "image": "images/negroni.jpg",
+    "description": "A smoky twist on classic Negroni with infused gin and orange zest."
+  },
+  {
+    "name": "Tropical Highball",
+    "image": "images/tropical.jpg",
+    "description": "Light refreshing cocktail with pineapple and citrus notes."
+  }
+]
