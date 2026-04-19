@@ -1,103 +1,42 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ashish | Luxury Cocktail Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-900 text-white"><!-- Navbar --><nav class="bg-black p-4 flex justify-between items-center shadow-lg">
-  <h1 class="text-xl font-bold">🍸 Ashish Portfolio</h1>
-  <div class="space-x-4">
-    <a href="#cv">CV</a>
-    <a href="#cocktails">Cocktails</a>
-    <a href="#add">Add</a>
+<section id="about">
+  <h1>Ashish Kumar Mandal</h1>
+  <p>Hospitality professional with experience across India & Middle East in luxury hotel operations, bar management, and guest relations.</p>
+
+  <p><strong>Location:</strong> Kolkata, India</p>
+  <p><strong>Email:</strong> Aashish.mandal@yahoo.com</p>
+  <p><strong>Phone:</strong> +91-8620008019</p>
+</section>
+
+<section id="experience">
+  <h2>Professional Experience</h2>
+
+  <div>
+    <h3>Guest Service Supervisor – Jai Mahal Palace (Taj)</h3>
+    <p>Sep 2024 – Present</p>
+    <ul>
+      <li>Supervise restaurant & bar operations</li>
+      <li>Handle guest complaints & service recovery</li>
+      <li>Manage staff scheduling & training</li>
+    </ul>
   </div>
-</nav><!-- CV Section --><section id="cv" class="p-6">
-  <h2 class="text-3xl font-bold mb-4">My CV</h2>
-  <div class="bg-gray-800 p-6 rounded-2xl shadow-xl">
-    <input id="cvName" class="w-full p-2 mb-2 bg-gray-700" placeholder="Your Name">
-    <input id="cvRole" class="w-full p-2 mb-2 bg-gray-700" placeholder="Your Role">
-    <textarea id="cvSkills" class="w-full p-2 mb-2 bg-gray-700" placeholder="Skills"></textarea>
-    <textarea id="cvExp" class="w-full p-2 mb-2 bg-gray-700" placeholder="Experience"></textarea>
-    <button onclick="saveCV()" class="bg-yellow-500 text-black px-4 py-2 rounded">Save CV</button>
+
+  <div>
+    <h3>Bartender – Sedra Arjaan by Rotana, Doha</h3>
+    <p>Nov 2023 – Apr 2024</p>
   </div>
-</section><!-- Cocktail Section --><section id="cocktails" class="p-6">
-  <h2 class="text-3xl font-bold mb-4">Cocktail Menu</h2>
-  <div id="cocktailList" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-</section><!-- Add Cocktail --><section id="add" class="p-6">
-  <h2 class="text-3xl font-bold mb-4">Add New Cocktail</h2>
-  <div class="bg-gray-800 p-6 rounded-2xl shadow-xl space-y-3">
-    <input id="name" class="w-full p-2 bg-gray-700" placeholder="Cocktail Name" />
-    <input id="imageFile" type="file" accept="image/*" class="w-full p-2 bg-gray-700" />
-    <textarea id="desc" class="w-full p-2 bg-gray-700" placeholder="Description"></textarea>
-    <textarea id="ingredients" class="w-full p-2 bg-gray-700" placeholder="Ingredients"></textarea>
-    <textarea id="method" class="w-full p-2 bg-gray-700" placeholder="Method"></textarea>
-    <button onclick="addCocktail()" class="bg-yellow-500 text-black px-4 py-2 rounded">Add Cocktail</button>
+
+  <div>
+    <h3>Bartender – Hilton Bengaluru</h3>
+    <p>Apr 2022 – Mar 2023</p>
   </div>
-</section><script>
-let cocktails = JSON.parse(localStorage.getItem('cocktails')) || [];
-let cvData = JSON.parse(localStorage.getItem('cv')) || {};
+</section>
 
-function saveCV() {
-  cvData = {
-    name: document.getElementById('cvName').value,
-    role: document.getElementById('cvRole').value,
-    skills: document.getElementById('cvSkills').value,
-    exp: document.getElementById('cvExp').value
-  };
-  localStorage.setItem('cv', JSON.stringify(cvData));
-  alert('CV Saved');
-}
-
-function renderCocktails() {
-  const list = document.getElementById('cocktailList');
-  list.innerHTML = '';
-
-  cocktails.forEach((c, index) => {
-    list.innerHTML += `
-      <div class="bg-gray-800 p-4 rounded-2xl shadow-xl">
-        <img src="${c.image}" class="w-full h-48 object-cover rounded">
-        <h3 class="text-xl font-bold mt-2">${c.name}</h3>
-        <p class="text-sm text-gray-300">${c.desc}</p>
-        <p class="mt-2"><strong>Ingredients:</strong> ${c.ingredients}</p>
-        <p><strong>Method:</strong> ${c.method}</p>
-        <button onclick="deleteCocktail(${index})" class="mt-3 bg-red-500 px-3 py-1 rounded">Delete</button>
-      </div>
-    `;
-  });
-}
-
-function addCocktail() {
-  const name = document.getElementById('name').value;
-  const file = document.getElementById('imageFile').files[0];
-  const desc = document.getElementById('desc').value;
-  const ingredients = document.getElementById('ingredients').value;
-  const method = document.getElementById('method').value;
-
-  if (!file) return alert('Upload image');
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    cocktails.push({
-      name,
-      image: e.target.result,
-      desc,
-      ingredients,
-      method
-    });
-
-    localStorage.setItem('cocktails', JSON.stringify(cocktails));
-    renderCocktails();
-  };
-  reader.readAsDataURL(file);
-}
-
-function deleteCocktail(index) {
-  cocktails.splice(index, 1);
-  localStorage.setItem('cocktails', JSON.stringify(cocktails));
-  renderCocktails();
-}
-
-renderCocktails();
-</script></body>
-</html>
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>🏆 Best Bartender 2022</li>
+    <li>🍸 Created 70+ cocktails</li>
+    <li>📈 Increased repeat guests by 25%</li>
+    <li>🎯 Resolved 98% guest issues</li>
+  </ul>
+</section>
