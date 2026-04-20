@@ -24,3 +24,53 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<section id="about" class="pt-24 p-6">
+  <h2 class="text-2xl font-bold mb-2">About Me</h2>
+  <p>
+    Hospitality professional with experience in luxury hotels across India and the Middle East,
+    specializing in bar operations, guest service, and mixology.
+  </p>
+</section>
+
+<section id="cocktails" class="p-6 bg-gray-100">
+  <h2 class="text-2xl font-bold mb-4">Cocktails</h2>
+  <div id="cocktails" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+</section>
+
+<section id="experience" class="p-6">
+  <h2 class="text-2xl font-bold mb-4">Experience</h2>
+
+  <div class="mb-4">
+    <h3 class="font-semibold">Guest Service Supervisor – Jai Mahal Palace</h3>
+    <p>Sep 2024 – Present</p>
+  </div>
+
+  <div class="mb-4">
+    <h3 class="font-semibold">Bartender – Rotana Doha</h3>
+    <p>Nov 2023 – Apr 2024</p>
+  </div>
+
+  <div>
+    <h3 class="font-semibold">Bartender – Hilton Bengaluru</h3>
+    <p>Apr 2022 – Mar 2023</p>
+  </div>
+</section>
+<section id="contact" class="p-6 bg-gray-100">
+  <h2 class="text-2xl font-bold mb-4">Contact</h2>
+
+  <p><strong>Name:</strong> Ashish Kumar Mandal</p>
+  <p><strong>Email:</strong> Aashish.mandal@yahoo.com</p>
+  <p><strong>Phone:</strong> +91-8620008019</p>
+  <p><strong>Location:</strong> India</p>
+</section>
+
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
