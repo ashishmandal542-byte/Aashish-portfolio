@@ -1,76 +1,101 @@
-<nav class="bg-black text-white p-4 fixed w-full top-0 z-50">
-  <div class="flex justify-between items-center">
-    <h1 class="text-xl font-bold">Ashish Mandal Portfolio</h1>
+<nav class="bg-black text-white p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold">Ashish Portfolio</h1>
 
-    <!-- Main Menu Button -->
-    <button id="menu-btn" class="md:hidden text-white text-2xl">
-      ☰
-    </button>
-
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-6">
-      <li><a href="#about" class="hover:text-gray-300">About</a></li>
-      <li><a href="#cocktails" class="hover:text-gray-300">Cocktails</a></li>
-      <li><a href="#experience" class="hover:text-gray-300">Experience</a></li>
-      <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-    </ul>
+  <!-- Desktop Buttons -->
+  <div class="hidden md:flex space-x-4">
+    <button onclick="showSection('about')" class="menu-btn">About</button>
+    <button onclick="showSection('cocktails')" class="menu-btn">Cocktails</button>
+    <button onclick="showSection('experience')" class="menu-btn">Experience</button>
+    <button onclick="showSection('contact')" class="menu-btn">Contact</button>
   </div>
 
-  <!-- Mobile Menu -->
-  <ul id="mobile-menu" class="hidden flex-col mt-4 space-y-2 md:hidden">
-    <li><a href="#about">About</a></li>
-    <li><a href="#cocktails">Cocktails</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <!-- Mobile Toggle -->
+  <button id="menu-btn" class="md:hidden text-2xl">☰</button>
 </nav>
 
-<section id="about" class="pt-24 p-6">
-  <h2 class="text-2xl font-bold mb-2">About Me</h2>
-  <p>
-    Hospitality professional with experience in luxury hotels across India and the Middle East,
-    specializing in bar operations, guest service, and mixology.
-  </p>
+<!-- Mobile Buttons -->
+<div id="mobile-menu" class="hidden bg-black text-white p-4 flex flex-col space-y-2">
+  <button onclick="showSection('about')" class="menu-btn">About</button>
+  <button onclick="showSection('cocktails')" class="menu-btn">Cocktails</button>
+  <button onclick="showSection('experience')" class="menu-btn">Experience</button>
+  <button onclick="showSection('contact')" class="menu-btn">Contact</button>
+</div>
+
+<style>
+.menu-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+</style>
+
+<section id="about" class="section hidden p-6">
+  <h2 class="text-2xl font-bold">About</h2>
+  <p>Hospitality professional & mixologist.</p>
 </section>
 
-<section id="cocktails" class="p-6 bg-gray-100">
-  <h2 class="text-2xl font-bold mb-4">Cocktails</h2>
-  <div id="cocktails" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+<section id="cocktails" class="section hidden p-6 bg-gray-100">
+  <h2 class="text-2xl font-bold">Cocktails</h2>
+  <div id="cocktail-list"></div>
 </section>
 
-<section id="experience" class="p-6">
-  <h2 class="text-2xl font-bold mb-4">Experience</h2>
-
-  <div class="mb-4">
-    <h3 class="font-semibold">Guest Service Supervisor – Jai Mahal Palace</h3>
-    <p>Sep 2024 – Present</p>
-  </div>
-
-  <div class="mb-4">
-    <h3 class="font-semibold">Bartender – Rotana Doha</h3>
-    <p>Nov 2023 – Apr 2024</p>
-  </div>
-
-  <div>
-    <h3 class="font-semibold">Bartender – Hilton Bengaluru</h3>
-    <p>Apr 2022 – Mar 2023</p>
-  </div>
-</section>
-<section id="contact" class="p-6 bg-gray-100">
-  <h2 class="text-2xl font-bold mb-4">Contact</h2>
-
-  <p><strong>Name:</strong> Ashish Kumar Mandal</p>
-  <p><strong>Email:</strong> Aashish.mandal@yahoo.com</p>
-  <p><strong>Phone:</strong> +91-8620008019</p>
-  <p><strong>Location:</strong> India</p>
+<section id="experience" class="section hidden p-6">
+  <h2 class="text-2xl font-bold">Experience</h2>
 </section>
 
+<section id="contact" class="section hidden p-6 bg-gray-100">
+  <h2 class="text-2xl font-bold">Contact</h2>
+</section>
 
 <script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
+  const sections = ["about", "cocktails", "experience", "contact"];
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+  function showSection(id) {
+    sections.forEach(sec => {
+      const el = document.getElementById(sec);
+
+      // fade out
+      el.classList.remove("active");
+      el.classList.add("hidden");
+    });
+
+    const activeSection = document.getElementById(id);
+
+    // delay for smoother transition
+    setTimeout(() => {
+      activeSection.classList.remove("hidden");
+      activeSection.classList.add("active");
+    }, 100);
+
+    // close mobile menu
+    document.getElementById("mobile-menu").classList.add("hidden");
+  }
+
+  // mobile toggle
+  document.getElementById("menu-btn").addEventListener("click", () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
   });
+
+  // default load
+  showSection("about");
 </script>
+<style>
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
